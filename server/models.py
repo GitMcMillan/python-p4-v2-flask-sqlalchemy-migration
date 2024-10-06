@@ -19,3 +19,15 @@ class Employee(db.Model):
 
     def __repr__(self):
         return f'<Employee {self.id}, {self.name}, {self.salary}>'
+    
+class Department(db.Model):
+    __tablename__ = "departments"
+
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String, nullable = False)
+    address = db.Column(db.String)
+
+    def __repr__(self):
+        name = self.name if self.name else 'No Name'
+        address = self.address if self.address else 'No address'
+        return f'<Department {self.id}, {name}, {address}>'
